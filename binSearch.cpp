@@ -9,9 +9,9 @@ int main(){
 	/* do the loop until a int or char x are tiped */
 	while(std::cout << "enter the search key, x  to exit: " and !(std::cin >> num) ){
 	
-		/* clen the erro flag of cin */
+		/* clean the erro flag of cin */
 		std::cin.clear();
-		/* capture the char tiped and convert to char to we know if if what char we want */
+		/* capture the tiped value and convert to char to we know if is that we want, i could do this with asc*/
 		char inputedValue;
 		inputedValue=std::cin.get();
 		if(inputedValue=='x' or inputedValue=='X')
@@ -21,7 +21,7 @@ int main(){
 		}
 		else
 		{
-			std::cout << "data type not correct just int and char x are accepted: \n";
+			std::cout << "ithe data type is not correct. just int and char x are accepted: \n";
 			std::cin.get();
 		}
 	}	
