@@ -4,5 +4,7 @@
 int main(){
 
 	int money=1000;	
+	
+	return 0;
 
 }
