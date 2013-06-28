@@ -18,7 +18,7 @@ int main(){
 
 	int betMoney=1000;
 //	bool continue=false;
-	int choice;
+	int choice, bet;
 	
 //	std::cout << betMoney;
 	std::cout << "#### Welcome to freemanmtc' Slot Machine ! ##### \n## Have Fun ##\n";
@@ -27,22 +27,39 @@ int main(){
 		std::cout << "what you want to do? \n(1)Play (2)Go home\n";
 		std::cin >> choice;
 
-		while(std::cin.fail())
-		{
-			std::cout << "you have just two options here man.\n";
-			std::cin.clear();
-			std::cin.ignore(10,'\n');
-		}
-			
 		switch(choice){
 			case 1:
 				std::cout << "so, lets start the game!!!\n";
+				
+				while(betMoney>0){
+					std::cout << "you have " << betMoney << "bucks to bet.\n" << "how much money you want to bet?\n";
+	
+					std::cin >> bet;
+					if(bet>betMoney){
+						std::cout << "you do not have this amount of money! \n Try another amount.\n";
+						std::cin >> bet;	
+					}else if(bet<=0){
+						std::cout << "your bet need to be more than 0!\n";
+						std::cin >> bet;
+					
+					}else{
+						std::cout << "roll the gears!\n";
+					}
+							
+				}	
+
+				std::cout << "you have no money, go home!\n";
 				break;
 			case 2:
 				std::cout << "bye bye !\n";
 				return 0;
 				break;
-			default: std::cout << "you have just two options here man\n";
+			default:
+				if(std::cin.fail()){
+					std::cin.clear();
+					std::cin.ignore(10,'\n');
+				}
+				std::cout << "you have just two options here man\n";
 				break;
 		}
 	}
