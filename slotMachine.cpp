@@ -13,8 +13,12 @@
 
 // todo: fix the bug from cin fail and switch default
 #include <iostream>
-
+#include <cstdlib>
+#include <ctime>
 int main(){
+
+	srand(time(0));
+	
 
 	int betMoney=1000;
 //	bool continue=false;
@@ -32,18 +36,26 @@ int main(){
 				std::cout << "so, lets start the game!!!\n";
 				
 				while(betMoney>0){
-					std::cout << "you have " << betMoney << "bucks to bet.\n" << "how much money you want to bet?\n";
+					std::cout << "you have " << betMoney << " bucks to bet.\n" << "how much money you want to bet?\n";
 	
 					std::cin >> bet;
 					if(bet>betMoney){
 						std::cout << "you do not have this amount of money! \n Try another amount.\n";
 						std::cin >> bet;	
 					}else if(bet<=0){
-						std::cout << "your bet need to be more than 0!\n";
+						std::cout << "your bet need to be more than 0 bucks budy!\nTry it again!\n";
 						std::cin >> bet;
 					
 					}else{
-						std::cout << "roll the gears!\n";
+						std::cout << "you are betting "<< bet << "bucks.\nso lets roll the gears!\n";
+						int r1= 2 + rand() % ((7 + 1) - 2);
+						int r2= 2 + rand() % ((7 + 1) - 2);
+						int r3= 2 + rand() % ((7 + 1) - 2);
+						std::cout << r1 << " | " << r2 << " | " << r3 << " | " << std::endl;
+						//betMoney=betMoney+(bet*10); // all 7
+						//betMoney=betMoney+(bet*5); // all same
+						//betMoney=betMoney+(bet*3); // 2 on tree
+						
 					}
 							
 				}	
@@ -65,5 +77,4 @@ int main(){
 	}
 	std::cin.get();
 	return 0;
-
 }
