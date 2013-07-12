@@ -20,11 +20,8 @@ int main(){
 	srand(time(0));
 	
 
-	int betMoney=1000;
-//	bool continue=false;
-	int choice, bet;
+	int betMoney=1000,choice,bet;
 	
-//	std::cout << betMoney;
 	std::cout << "#### Welcome to freemanmtc' Slot Machine ! ##### \n## Have Fun ##\n";
 
 	while(true){
@@ -51,10 +48,30 @@ int main(){
 						int r1= 2 + rand() % ((7 + 1) - 2);
 						int r2= 2 + rand() % ((7 + 1) - 2);
 						int r3= 2 + rand() % ((7 + 1) - 2);
-						std::cout << r1 << " | " << r2 << " | " << r3 << " | " << std::endl;
-						//betMoney=betMoney+(bet*10); // all 7
-						//betMoney=betMoney+(bet*5); // all same
-						//betMoney=betMoney+(bet*3); // 2 on tree
+						std::cout << "yours numbers are -> " << r1 << " | " << r2 << " | " << r3 << " | " << std::endl;
+					
+						if(r1==r2==r3 and r1+r2+r3==21){
+							betMoney=betMoney + (bet*10); // all 7
+							std::cout << ">>>7<<<\n";
+							std::cout << "you win! " << bet*10 << " bucks!\n";
+							
+						}else if(r1==r2==r3){
+							std::cout << ">>>5<<<\n";
+							betMoney=betMoney + (bet*5); // all same
+							std::cout << "you win! " << bet*5 << " bucks!\n";
+
+						}else if(r1==r2 or r1==r3 or r2==r3){
+							std::cout << ">>>3<<<\n";
+							betMoney=betMoney + (bet*3); // 2 on tree
+							std::cout << "you win! " << bet*3 << " bucks!\n";
+
+						}else{
+							//loose all
+							betMoney=betMoney - bet;
+							std::cout << "you lose your bet!\n";
+						}
+
+						
 						
 					}
 							
